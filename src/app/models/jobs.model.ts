@@ -12,6 +12,7 @@ export class Jobs {
   short_name: any;
   tags: any;
   type: any;
+  authors:any
 }
 export class Company {
   locations: any;

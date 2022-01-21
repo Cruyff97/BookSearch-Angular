@@ -1,51 +1,41 @@
  <div class="homedes">
-   <h2 class="descriptionHome1">Build your futures</h2>
-  <h3 class="descriptionHome">Find job opportunities based on your experience and company</h3>
+   <h2 class="descriptionHome1">Find new books</h2>
+  <h3 class="descriptionHome">From great classics to underground books,there's all you need</h3>
  </div>
   <div class="formdiv" > 
- <form (ngSubmit)="onSubmit(experience)" >
+ <form (ngSubmit)="onSubmit(inputCategory)" >
 
 
 <mat-form-field appearance="fill" [floatLabel]="floatLabelControl.value">
-<mat-label>Insert company</mat-label>
-<input id="inputcomp" (input)='inputCompany=($any($event.target!.value))' name="inputCompany" matInput placeholder="Company">
+<mat-label>Search a book</mat-label>
+<input id="inputcomp" (input)='inputCategory=($any($event.target!.value))' name="inputCategory" matInput >
 </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Experience Level</mat-label>
-        <mat-select  ngModel #experience="ngModel" [(ngModel)]="selectedValue" name="experience">
-          <mat-option *ngFor="let experience of experiences" [value]="experience.value">
-            {{experience.viewValue}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+
     </form>
-    <button mat-raised-button (click)="onSubmit(experience)">search</button>
+    <button mat-raised-button (click)="onSubmit(inputCategory)">search</button>
   </div>
+  
   <sa-spinner-round id='spinner'></sa-spinner-round>
- <table *ngIf='jobs.length>0' class="table  is-striped is-hoverable">
+ <table *ngIf='books.length>0' class="table  is-striped is-hoverable">
   <thead>
       <tr>
-          <th>Job</th>
-          <th>Location</th>
-          <th>Company</th>
+          <th>Title</th>
+          <th>Author</th>
       </tr>
   </thead>
   <tbody >
      
-          <tr class="results" [routerLink]= "['JobDetails', job.id]" *ngFor='let job of jobs'>
-            <a [routerLink]= "['JobDetails', job.id]">
+          <tr class="results" [routerLink]= "['BookDetails', book.key]" *ngFor='let book of books'>
+            <a [routerLink]= "['BookDetails', book.key]">
             <td >
-                  {{job.name}}
+                  {{book.title}}
                   
               </td>
             </a>
               <td>
-                <span *ngFor='let location of job.locations'>
-                  {{location.name}}
+                <span *ngFor='let author of book.authors'>
+                  {{author.name}}
                  </span>
-              </td>
-              <td>
-                {{job.company.name}}  
               </td>
           </tr>
       

@@ -5,7 +5,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 
 const routes: Routes = [
   {
-    path: 'JobDetails/:id',
+    path: 'BookDetails/:key',
     component: JobDetailsComponent
   },
   {

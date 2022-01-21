@@ -1,16 +1,18 @@
-.dateandloc{
-    padding: 5px;
-}
+.description{padding-left: 6px;}
+
 .aboutcomp{
     margin: 0;
 }
-.logocompanies{
-display: block;
-margin: auto;
-width: 108px;
-height: auto;
-padding:3px}
+.cover{
+    height: fit-content;
+    width: auto;
+    top: 0;
+    max-width: 170px;
+}
 .box{
+    display: flex;
+    align-content: center;
+
     padding: 15px;
     padding-left: 20px;
     position: relative;
@@ -18,9 +20,19 @@ padding:3px}
     
     
 }
+.tr{
+    padding:3px;
+}
+.box2{
+    display: flex;
+}
+.image{
+    display: flex;
+}
 .logocomp{border-radius: 28px;
+    display: flex;
     height: 56px;
-    position: absolute;
+    position: relative;
     right: 20px;
   
     width: 156px;
@@ -28,7 +40,7 @@ padding:3px}
 .contents{
     margin-top: 25px;
 }
-.jobsName{
+.bookTitle{
     font-weight: 600;
     font-size: 32px;
     line-height: 38px;
@@ -45,10 +57,26 @@ padding:3px}
     text-transform: uppercase;
 }
 .jobstitle{
+    display: block;
     padding-left: 15px;
 }
 .jobsdate{
+    display: flex;
     padding-left: 10px;
 }
 .datetypography{
 margin: 0px 0px 0px;}
+@media only screen and (max-width: 600px) {
+    .box2{
+        display: block;
+    }
+    .image{
+        display: flex;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+    }
+    .bookTitle{
+        text-align: center;
+    }
+}

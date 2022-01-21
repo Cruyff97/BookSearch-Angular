@@ -10,11 +10,13 @@ import { Jobs } from '../models/jobs.model';
   styleUrls: ['./job-details.component.css'],
 })
 export class JobDetailsComponent implements OnInit {
-  @Input() jobs: any;
-  @Input() companyId: any;
+  @Input() book: any;
+  @Input() bookId: any;
   src: any;
   companyres: any;
-  companyref: any;
+  details:any
+  author: any;
+  description:any;
   constructor(
     private activatedRoute: ActivatedRoute,
     private http: HttpClient
@@ -22,23 +24,37 @@ export class JobDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
-      const jobId = params['id'];
+      const bookId = params['key'];
+     
       return this.http
-        .get<Jobs[]>('https://www.themuse.com/api/public/jobs/' + jobId)
-        .subscribe((response: any) => {
-          this.jobs = response;
+      .get<Jobs[]>('https://openlibrary.org' + bookId + '.json')
+      .subscribe((response: any) => {
+        console.log(response);   
+        this.book = response;
+        this.description=this.book.description;
+        if(this.description.length>1){
+          this.description= this.book.description.value
+        }
+        this.details= this.book.links[0].url
+        const coverId= this.book.covers[0];
 
-          const companyId = this.jobs.company.id;
-          return this.http
-            .get<Company[]>(
-              'https://www.themuse.com/api/public/companies/' + companyId
-            )
-            .subscribe((response: any) => {
-              this.companyres = response;
-              this.src = this.companyres.refs.logo_image;
-              this.companyref = this.companyres.refs.landing_page;
-            });
-        });
-    });
-  }
+        this.src= 'https://covers.openlibrary.org/b/id/' + coverId + '.jpg'
+        console.log(this.src);
+        
+        const authorId= this.book.authors[0].author.key
+      
+        return this.http
+        .get('https://openlibrary.org' + authorId  + '.json')
+        .subscribe((response:any)=>{
+          this.author= response.personal_name      
+        })
+        
+      
+        
+        
+
+        })
+        ;
+      });
+    }
 }

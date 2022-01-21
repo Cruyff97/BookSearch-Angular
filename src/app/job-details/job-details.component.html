@@ -1,25 +1,31 @@
-<div class="jobstitle">
-  <h2 class="jobsName">
-    {{ jobs.name }}
-  </h2>
-  <a href="{{ companyref }}" class="companyName" target="_blank">
-    <h3 class="datetypography">{{ jobs.company.name }}</h3>
-  </a>
-</div>
-<div class="jobsdate">
-  <span class="dateandloc">{{ jobs.publication_date | date }}</span>
-  <span class="dateandloc" *ngFor="let location of jobs.locations">
-    •{{ location.name }}
-  </span>
-</div>
 <div class="box">
-  <div class="logocomp">
-    <img class="logocompanies" src="{{ src }}" alt="logo companies" srcset="" />
-  </div>
-  <h2 class="aboutcomp">Job Informations</h2>
+  <div class="box2">
+    <div class="image">
+      <img class="cover" src="{{ src }}" alt="logo companies" srcset="" />
+      
+    </div>
 
-  <div class="contents" [innerHTML]="jobs.contents">{{ jobs.contents }}</div>
-  <a href="{{ companyref }}" target="_blank">
-    <button class="button is-info">More About {{ jobs.company.name }}</button>
-  </a>
+    <div class="description">
+      <h2 class="bookTitle">
+        {{ book.title }}
+      </h2>
+      
+      <table>
+        <tr class="tr">
+          <th>Author</th>
+          <td>{{author}}</td>
+        </tr>
+          <tr class="tr">
+            <th>Plot</th>
+            <td>{{description}}</td>
+
+          </tr>
+   
+      </table>   
+    </div>
+    <div class="contents" [innerHTML]="book.contents">{{ book.contents }}</div>
+  </div>
 </div>
+<a href="{{ details }}" target="_blank">
+  <button class="button is-info">More About {{ book.title }}</button>
+</a>
