@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 https://jobsearch-finalangularpr-80864.web.app/
 
 ## Description 
-This is a small project using Angular for a jobsearch site. The site uses API from themuse.com for showing engineering avaibles jobs. It is possible to choose beetween Enter Level Jobs, Middle Level Jobs, Senior Level Jobs, internship and manager positions. In addition it is possible to insert a company name to show their avaible positions.
+This is a small project using Angular for a booksearch site. The site uses API from https://openlibrary.org/ for books bades on categories. 
 So i made different API calls for this project and utilize angular features such as directives, services and others. 
 
 # What i learned
