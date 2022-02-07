@@ -27,7 +27,7 @@ author:any
   public onSubmit(inputCategory: any) {
     document.getElementById('spinner')!.style.display = 'table';
     stopSpinner();
-    return this.http.get('http://openlibrary.org/subjects/' + this.inputCategory + '.json?limit=20')
+    return this.http.get('https://openlibrary.org/subjects/' + this.inputCategory + '.json?limit=20')
     .subscribe((response: any) => {
         this.books = response.works;
 
