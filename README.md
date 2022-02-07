@@ -3,7 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.1.
 
 ## Try the application
-https://jobsearch-finalangularpr-80864.web.app/
+https://tender-sammet-0ab8f7.netlify.app/
 
 ## Description 
 This is a small project using Angular for a booksearch site. The site uses API from https://openlibrary.org/ for books bades on categories. 
